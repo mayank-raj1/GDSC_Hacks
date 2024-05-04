@@ -1,8 +1,15 @@
 import { useParams } from "react-router";
 import Contact from "./Contact.jsx";
+import AddContactModal from "./AddContactModal.jsx";
+import { useState } from "react";
 
 function ContactsPage() {
   const { contactid } = useParams();
+  const [contactModalIsVisible, setContactModalIsVisible] = useState(false);
+
+  const openContactModal = () => {
+    setContactModalIsVisible(true);
+  }
 
   let data = [
     {
@@ -24,7 +31,7 @@ function ContactsPage() {
         <div className="border border-black-900 max-h-screen w-96 flex flex-col">
           <div className="flex justify-between items-center ml-4 pr-4 border-r border-slate-300">
             <h2 className="text-4xl py-4 font-semibold">Contacts</h2>
-            <button>
+            <button onClick={openContactModal}>
               <i className="material-icons text-5xl pt-1 text-cyan-500">
                 add_box
               </i>
@@ -51,19 +58,20 @@ function ContactsPage() {
       </div>
 
       <main className="h-full w-full">
-          {
-            (
-              contactid
-            ) ? (
-              <Contact id={contactid} />
-            ) : (
-              <div className="w-full h-full flex items-center justify-center">
-                <p className="w-fit font-semibold text-2xl">Select a Contact</p>
-              </div>
-            )
-          }
-        </main>
+        {
+          (
+            contactid
+          ) ? (
+            <Contact id={contactid} />
+          ) : (
+            <div className="w-full h-full flex items-center justify-center">
+              <p className="w-fit font-semibold text-2xl">Select a Contact</p>
+            </div>
+          )
+        }
+      </main>
 
+      {contactModalIsVisible && <AddContactModal modalState={contactModalIsVisible} modalSetter={setContactModalIsVisible} />}
     </div>
   );
 }
