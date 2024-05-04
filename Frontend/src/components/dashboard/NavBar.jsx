@@ -48,7 +48,7 @@ function NavBar() {
             {
               navLinks.map((link, i) => {
                 return (
-                  <li key={i} className="ml-6 mb-10 text-xl">
+                  <li key={i} className="ml-4 pl-2 mb-6 py-2 mr-4 rounded-lg text-xl hover:bg-slate-200 active:bg-slate-300">
                     <NavLink to={link.route}>
                       <div className="flex items-center w-fit">
                         <i className="material-icons w-8 mr-7 text-3xl">{link.icon}</i>
