@@ -30,7 +30,7 @@ function NavBar() {
   return (
     <div className="flex min-h-screen max-h-full w-full relative">
       <div className="border-r border-slate-300 bg-white z-0 hover:z-20
-      h-full w-20 hover:w-[400px] hover:pr-32 transition-all shrink-0 absolute top-0 left-0 duration-300"
+      h-full w-20 hover:w-[400px] transition-all shrink-0 absolute top-0 left-0 duration-300"
       >
         <nav>
 
