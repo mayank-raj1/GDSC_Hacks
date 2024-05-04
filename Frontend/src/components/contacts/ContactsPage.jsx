@@ -14,7 +14,7 @@ function ContactsPage() {
   } 
 
   return (
-    <div className="bg-white w-96">
+    <div className="bg-white w-96 z-10 ml-20">
     
       <main className="border border-black-900">
         <div className="flex justify-between items-center mx-4">

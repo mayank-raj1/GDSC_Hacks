@@ -28,8 +28,10 @@ function NavBar() {
   ]
 
   return (
-    <div className="flex min-h-screen max-h-full w-full">
-      <div className="border-r border-slate-300 bg-white h-full w-20 hover:w-64 transition-all shrink-0">
+    <div className="flex min-h-screen max-h-full w-full relative">
+      <div className="border-r border-slate-300 bg-white z-0 hover:z-20
+      h-full w-20 hover:w-64 transition-all shrink-0 absolute top-0 left-0 "
+      >
         <nav>
 
           <div className="flex my-4 mx-2 items-center w-fit">
