@@ -1,19 +1,7 @@
 
 function ContactsPage() {
 
-  const data = [
-    {
-      name: "John Doe",
-      title: "Software Engineer",
-      company: "Google",
-      goal: "Get a referral",
-    },
-    {
-      name: "John Doe",
-      title: "Software Engineer",
-      company: "Google",
-      goal: "Get a referral",
-    },
+  let data = [
     {
       name: "John Doe",
       title: "Software Engineer",
@@ -21,15 +9,38 @@ function ContactsPage() {
       goal: "Get a referral",
     },
   ]
+  for (let i = 0; i < 3; i++){
+    data = data.concat(data)
+  } 
 
   return (
-    <div className="bg-red-100 w-full">
-      <header className="flex items-center justify-center my-6">
-        <h2 className="text-5xl">Contacts</h2>
-      </header>
-
+    <div className="bg-white w-96">
+    
       <main className="border border-black-900">
-
+        <div className="flex justify-between items-center mx-4">
+          <h2 className="text-4xl py-4">Contacts</h2>
+          <button>
+            <i className="material-icons text-5xl pt-1">
+              add_box
+            </i>
+          </button>
+        </div>
+        <div className="">
+          {
+            data.map((contact, i) => {
+              return (
+                <div key={i} className="border bg-white p-4">
+                  <h4 className="text-xl">{contact.name}</h4>
+                  <div>
+                    <p className="text-gray-500">
+                      <em>{contact.title + " at " + contact.company}</em>
+                    </p>
+                  </div>
+                </div>
+              );
+            })
+          }
+        </div>
 
       </main>
 

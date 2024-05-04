@@ -28,8 +28,8 @@ function NavBar() {
   ]
 
   return (
-    <div className="flex h-screen w-full">
-      <div className="border-r border-slate-300 h-full">
+    <div className="flex min-h-screen max-h-full w-full">
+      <div className="border-r border-slate-300 bg-white h-full">
         <nav>
           <h1 className="text-4xl m-6">ProVision</h1>
           <ul>
