@@ -6,6 +6,11 @@ function NavBar() {
 
   const navLinks = [
     {
+      name: "Dashboard",
+      route: "/",
+      icon: "dashboard",
+    },
+    {
       name: "Contacts",
       route: "/contacts",
       icon: "contacts",

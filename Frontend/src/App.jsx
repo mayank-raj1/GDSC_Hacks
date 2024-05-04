@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Dashboard from './components/dashboard/Dashboard.jsx';
 import NavBar from './components/dashboard/NavBar.jsx';
 import ContactsPage from './components/contacts/ContactsPage.jsx';
+import ChatPage from './components/chat/ChatPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -14,10 +15,10 @@ const router = createBrowserRouter([
         index: true, 
         element: <Dashboard />
       },
-      // {
-      //   path: "chat/:chatid?",
-      //   element: <Chat />,
-      // },
+      {
+        path: "chat/:chatid?",
+        element: <ChatPage />,
+      },
       {
         path: "contacts/:contactid?",
         element: <ContactsPage />
