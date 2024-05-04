@@ -10,8 +10,7 @@ function ContactInfo({ name, title, company, met }) {
       <p className="font-semibold text-2xl ml-2 pt-4">{name}</p>
       <p className="text-xl pt-2 ml-2 border-b pb-4 text-slate-400">{title + " at " + company}</p>
       <p className="text-md pt-4 p-2"><em>{met}</em></p>
-
-
+      
     </div>
   );
 }
