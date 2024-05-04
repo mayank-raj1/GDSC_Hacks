@@ -29,9 +29,19 @@ function NavBar() {
 
   return (
     <div className="flex min-h-screen max-h-full w-full">
-      <div className="border-r border-slate-300 bg-white h-full w-20 hover:w-56 transition-all">
+      <div className="border-r border-slate-300 bg-white h-full w-20 hover:w-64 transition-all shrink-0">
         <nav>
-          <h1 className="text-4xl m-6">ProVision</h1>
+
+          <div className="flex my-4 mx-2 items-center w-fit">
+            <img 
+              src="NetWrk logo.png" 
+              alt="NetWrk's logo" 
+              className="size-16 shrink-0 mr-4"  
+            />
+            <h1 className="text-4xl w-fit font-semibold">
+              NetWrk
+            </h1>
+          </div>
           <ul>
             {
               navLinks.map((link, i) => {

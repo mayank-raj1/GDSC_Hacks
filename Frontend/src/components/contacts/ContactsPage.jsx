@@ -18,9 +18,9 @@ function ContactsPage() {
     
       <main className="border border-black-900">
         <div className="flex justify-between items-center mx-4">
-          <h2 className="text-4xl py-4">Contacts</h2>
+          <h2 className="text-4xl py-4 font-semibold">Contacts</h2>
           <button>
-            <i className="material-icons text-5xl pt-1">
+            <i className="material-icons text-5xl pt-1 text-cyan-500">
               add_box
             </i>
           </button>

@@ -4,7 +4,7 @@ function Dashboard() {
 
 
   return (
-    <div>Dashboard</div>
+    <div className="bg-white w-full flex-shrink">Dashboard</div>
   );
 }
 
