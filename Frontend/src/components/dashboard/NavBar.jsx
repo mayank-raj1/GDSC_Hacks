@@ -1,8 +1,9 @@
+import { Outlet } from "react-router";
 
 function NavBar() {
 
   return (
-    <div>
+    <div className="h-full w-16 border border-slate-300">
       <nav>
         <h1 className="">
           ProVision
@@ -11,6 +12,8 @@ function NavBar() {
 
         </ul>
       </nav>
+
+      <Outlet />
 
     </div>
   );

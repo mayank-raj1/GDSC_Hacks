@@ -7,6 +7,17 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <NavBar />,
+    // errorElement: <ErrorPage />,
+    children: [
+      { 
+        index: true, 
+        element: <Dashboard />
+      },
+      // {
+      //   path: "chat/:chatid?",
+      //   element: <Chat />,
+      // },
+    ]
   },
 
 ])
