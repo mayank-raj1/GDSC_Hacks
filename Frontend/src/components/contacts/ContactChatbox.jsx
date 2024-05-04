@@ -3,6 +3,10 @@ import { Form } from "react-router-dom";
 
 function ContactChatBox() {
 
+  const activateChat = () => {
+    
+  }
+
   const dateFunc = () => {
     let date = new Date()
     date = date.toLocaleDateString('en-GB', {
@@ -55,7 +59,8 @@ function ContactChatBox() {
           onSubmit={console.log('test')}
         >
           <input
-            className="p-2 rounded-full border-2 border-black w-full"
+            className="p-2 pl-4 rounded-full border-2 border-black w-full"
+            onClick={activateChat}
           />
           <button
             type="submit"

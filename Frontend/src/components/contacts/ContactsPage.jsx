@@ -6,16 +6,18 @@ import { useState } from "react";
 
 function ContactsPage() {
   const { contactid } = useParams();
+
   const [contactModalIsVisible, setContactModalIsVisible] = useState(false);
 
   const openContactModal = () => {
     setContactModalIsVisible(true);
   }
 
+
   let data = [
     {
       name: "Jane Doe",
-      title: "Software Engineer",
+      role: "Software Engineering Manager",
       company: "Google",
       goal: "Get a referral",
       id: "abc123",
@@ -33,11 +35,16 @@ function ContactsPage() {
           <div className="flex justify-between items-center ml-4 pr-4 border-r border-slate-300">
 
             <h2 className="text-4xl py-4 font-semibold">Contacts</h2>
-            <button onClick={openContactModal}>
+
+            <button
+              className=""
+              onClick={openContactModal}
+              >
               <i className="material-icons text-5xl pt-1 text-cyan-500">
                 add_box
               </i>
             </button>
+            
           </div>
           <ul className="overflow-y-auto max-h-full">
             {
@@ -49,7 +56,7 @@ function ContactsPage() {
                         <h4 className="text-xl">{contact.name}</h4>
                         <div>
                           <p className="text-gray-500">
-                            <em>{contact.title + " at " + contact.company}</em>
+                            <em>{contact.role + " at " + contact.company}</em>
                           </p>
                         </div>
                       </div>
@@ -68,7 +75,7 @@ function ContactsPage() {
           (
             contactid
           ) ? (
-            <Contact id={contactid} name={data[0].name} title={data[1].title}
+            <Contact id={contactid} name={data[0].name} role={data[1].role}
             company={data[2].company} goal={data[3].goal}/>
           ) : (
             <div className="w-full h-full flex items-center justify-center">
@@ -79,6 +86,7 @@ function ContactsPage() {
       </main>
 
       {contactModalIsVisible && <AddContactModal modalState={contactModalIsVisible} modalSetter={setContactModalIsVisible} />}
+
     </div>
   );
 }

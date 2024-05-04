@@ -1,6 +1,4 @@
 import { Form } from "react-router-dom"
-import { useState } from "react";
-
 
 const formItems = [
   "name",
@@ -59,7 +57,7 @@ function AddContactModal({ modalSetter }) {
           }
 
           <div className="w-full flex justify-center mt-6">
-            <button type="submit" className="bg-cyan-300 hover:bg-cyan-400 active:bg-cyan-500 py-2 px-4 rounded-lg mx-8 w-2/3">
+            <button type="submit" className="text-lg bg-cyan-300 hover:bg-cyan-400 active:bg-cyan-500 py-2 px-4 rounded-lg mx-8 w-2/3">
               Add contact
             </button>
           </div>
