@@ -38,13 +38,13 @@ function ContactChatBox() {
 
   return (
     <div className="w-full h-full flex flex-col justify-end">
-      <div className="w-full flex justify-center border-b pb-4">
+      <div className="w-full flex justify-center h-12 border-b pb-4">
         <h4 className="text-2xl font-semibold">Chat</h4>
       </div>
       <div className="w-full h-full flex flex-col-reverse items-center">
         {
           sampleMessages.map((message, i) => {
-            return <Message message={message} />
+            return <Message key={i} message={message} />
           })
         }
       </div>
@@ -61,7 +61,7 @@ function ContactChatBox() {
             type="submit"
             className="bg-cyan-300 hover:bg-cyan-400 active:bg-cyan-500 absolute py-1.5 px-3 right-2 top-1 rounded-xl"
           >
-            Send
+            Chat
           </button>
         </Form>
       </div>
