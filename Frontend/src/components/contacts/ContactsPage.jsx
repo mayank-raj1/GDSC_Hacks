@@ -14,7 +14,7 @@ function ContactsPage() {
 
   let data = [
     {
-      name: "John Doe",
+      name: "Jane Doe",
       title: "Software Engineer",
       company: "Google",
       goal: "Get a referral",
@@ -43,13 +43,15 @@ function ContactsPage() {
             {
               data.map((contact, i) => {
                 return (                  
-                  <li key={i} className="border bg-white p-4 hover:bg-slate-100">
+                  <li key={i} className="border bg-white hover:bg-slate-100">
                     <NavLink to={`/contacts/${contact.id}`}>
-                      <h4 className="text-xl">{contact.name}</h4>
-                      <div>
-                        <p className="text-gray-500">
-                          <em>{contact.title + " at " + contact.company}</em>
-                        </p>
+                      <div className="p-4">
+                        <h4 className="text-xl">{contact.name}</h4>
+                        <div>
+                          <p className="text-gray-500">
+                            <em>{contact.title + " at " + contact.company}</em>
+                          </p>
+                        </div>
                       </div>
                     </NavLink>
                   </li>
