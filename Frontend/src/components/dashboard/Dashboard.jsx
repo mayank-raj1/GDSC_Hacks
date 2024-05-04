@@ -16,11 +16,14 @@ function Dashboard() {
 
 
   return (
-    <div className="bg-white w-96">
-      <main className="border border-black-900">
+    <div className="flex">
+      <div className="bg-white w-96 z-10 ml-20">
+      <main className="border border-black-900 max-h-screen fixed w-96 flex flex-col">
+        <div className="flex justify-between items-center mx-4">
           <h2 className="text-4xl py-4 font-semibold indent-4">DashBoard</h2>
+        </div>
       </main>
-      <div className="">
+      <div className="overflow-y-auto max-h-full">
           {
             data.map((contact, i) => {
               return (
@@ -36,6 +39,7 @@ function Dashboard() {
             })
           }
         </div>
+      </div>
     </div>
     
   );
