@@ -30,13 +30,13 @@ function NavBar() {
   return (
     <div className="flex min-h-screen max-h-full w-full relative">
       <div className="border-r border-slate-300 bg-white z-0 hover:z-20
-      h-full w-20 hover:w-64 transition-all shrink-0 absolute top-0 left-0"
+      h-full w-20 hover:w-[400px] hover:pr-32 transition-all shrink-0 absolute top-0 left-0 duration-300"
       >
         <nav>
 
           <div className="flex my-4 mx-2 items-center w-fit">
             <img 
-              src="./NetWrk logo.png" 
+              src="../NetWrk logo.png" 
               alt="NetWrk's logo" 
               className="size-16 shrink-0 mr-4"  
             />
@@ -48,10 +48,10 @@ function NavBar() {
             {
               navLinks.map((link, i) => {
                 return (
-                  <li key={i} className="ml-4 pl-2 mb-6 py-2 mr-4 rounded-lg text-xl hover:bg-slate-200 active:bg-slate-300">
+                  <li key={i} className="ml-3 pl-2 mb-6 py-3 mr-4 rounded-lg text-2xl hover:bg-slate-200 active:bg-slate-300">
                     <NavLink to={link.route}>
                       <div className="flex items-center w-fit">
-                        <i className="material-icons w-8 mr-7 text-3xl">{link.icon}</i>
+                        <i className="material-icons w-8 mr-7 text-4xl">{link.icon}</i>
                         <h3 className="w-fit ">{link.name}</h3>
                       </div>
                     </NavLink>

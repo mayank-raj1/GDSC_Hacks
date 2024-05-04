@@ -28,8 +28,8 @@ function ContactsPage() {
 
   return (
     <div className="flex w-full">
-      <div className="bg-white w-96 z-10 ml-20 ">      
-        <div className="border border-black-900 max-h-screen w-96 flex flex-col">
+      <div className="bg-white w-80 z-10 ml-20 ">      
+        <div className="border border-black-900 max-h-screen w-80 flex flex-col">
           <div className="flex justify-between items-center ml-4 pr-4 border-r border-slate-300">
 
             <h2 className="text-4xl py-4 font-semibold">Contacts</h2>
