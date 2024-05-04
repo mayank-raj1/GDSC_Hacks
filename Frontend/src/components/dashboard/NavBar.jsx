@@ -7,15 +7,18 @@ function NavBar() {
   const navLinks = [
     {
       name: "Contacts",
-      route: "/contacts"
+      route: "/contacts",
+      icon: "contacts",
     },
     {
       name: "Chat",
-      route: "/chat"
+      route: "/chat",
+      icon: "chat",
     },
     {
       name: "Other",
-      route: "/other"
+      route: "/other",
+      icon: "settings",
     },
   ]
 
@@ -28,9 +31,12 @@ function NavBar() {
             {
               navLinks.map((link, i) => {
                 return (
-                  <li key={i} className="ml-4 text-xl">
+                  <li key={i} className="ml-4 mb-6 text-xl">
                     <NavLink>
-                      <h3>{link.name}</h3>
+                      <div className="flex items-center">
+                        <i className="material-icons mr-4">{link.icon}</i>
+                        <h3 className="w-fit">{link.name}</h3>
+                      </div>
                     </NavLink>
                   </li>
                 );
