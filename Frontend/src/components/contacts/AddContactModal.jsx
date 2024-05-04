@@ -6,6 +6,7 @@ const formItems = [
   "name",
   "organization",
   "role",
+  "context",
   "goals",
 ];
 
@@ -34,7 +35,7 @@ function AddContactModal({ modalSetter }) {
           </div>
         </div>
 
-        <Form className="flex-col w-full h-full p-4 justify-center">
+        <Form className="flex-col w-full h-full px-4 pt-2 pb-4 justify-center">
 
           {
             formItems.map((item, i) => {
@@ -43,13 +44,21 @@ function AddContactModal({ modalSetter }) {
                   <label htmlFor={item} className="ml-4">
                     {item.charAt(0).toUpperCase() + item.slice(1) + ":"}
                   </label>
-                  <input name={item} className="ml-2 border-2 rounded-lg p-1 flex-grow w-full" />
+                  <input 
+                    name={item} 
+                    className={
+                      (item === "goals") ? (
+                        "ml-2 border-2 rounded-lg p-1 flex-grow w-full h-24"
+                      ) : (
+                        "ml-2 border-2 rounded-lg p-1 flex-grow w-full"
+                      )}
+                  />
                 </div>
               );
             })
           }
 
-          <div className="w-full flex justify-center mt-10">
+          <div className="w-full flex justify-center mt-6">
             <button type="submit" className="bg-cyan-300 hover:bg-cyan-400 active:bg-cyan-500 py-2 px-4 rounded-lg mx-8 w-2/3">
               Add contact
             </button>
