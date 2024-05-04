@@ -10,6 +10,7 @@ function ContactsPage() {
       title: "Software Engineer",
       company: "Google",
       goal: "Get a referral",
+      id: "abc123",
     },
   ]
   for (let i = 0; i < 4; i++){
@@ -17,11 +18,11 @@ function ContactsPage() {
   } 
 
   return (
-    <div className="flex">
+    <div className="flex w-full">
       <div className="bg-white w-96 z-10 ml-20 ">
       
-        <div className="border border-black-900 max-h-screen fixed w-96 flex flex-col">
-          <div className="flex justify-between items-center mx-4">
+        <div className="border border-black-900 max-h-screen w-96 flex flex-col">
+          <div className="flex justify-between items-center ml-4 pr-4 border-r border-slate-300">
             <h2 className="text-4xl py-4 font-semibold">Contacts</h2>
             <button>
               <i className="material-icons text-5xl pt-1 text-cyan-500">
@@ -49,15 +50,15 @@ function ContactsPage() {
         
       </div>
 
-      <main>
+      <main className="h-full w-full">
           {
             (
               contactid
             ) ? (
               <Contact id={contactid} />
             ) : (
-              <div>
-                Select a Contact
+              <div className="w-full h-full flex items-center justify-center">
+                <p className="w-fit font-semibold text-2xl">Select a Contact</p>
               </div>
             )
           }
