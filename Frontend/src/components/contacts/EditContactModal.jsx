@@ -62,33 +62,20 @@ function EditContactModal({ editModalSetter, props }) {
                   <label htmlFor={item.k} className="ml-4">
                     {item.k.charAt(0).toUpperCase() + item.k.slice(1) + ":"}
                   </label>
-                  {/* <input 
-                    name={item.k} 
-                    defaultValue={item.v}
-                    className={
-                      (item.k === "context") ? (
-                        "text-start text-wrap ml-2 border-2 rounded-lg p-1 flex-grow w-full h-24"
-                      ) : (
-                        "text-start text-wrap ml-2 border-2 rounded-lg p-1 flex-grow w-full"
-                      )}
-                  /> */}
-
-                    {
-                      (item.k === "context") ? (
-                        <textarea
-                          className="text-start text-wrap ml-2 border-2 rounded-lg p-1 flex-grow w-full h-24" 
-                          defaultValue={item.v}
-                        />
-                      ) : (
-                        <input 
-                          name={item.k} 
-                          defaultValue={item.v}
-                          className={"text-start text-wrap ml-2 border-2 rounded-lg p-1 flex-grow w-full"}
-                        />
-                      )
-                    }
-
-
+                  {
+                    (item.k === "context") ? (
+                      <textarea
+                        className="text-start text-wrap ml-2 border-2 rounded-lg p-1 flex-grow w-full h-24" 
+                        defaultValue={item.v}
+                      />
+                    ) : (
+                      <input 
+                        name={item.k} 
+                        defaultValue={item.v}
+                        className={"text-start text-wrap ml-2 border-2 rounded-lg p-1 flex-grow w-full"}
+                      />
+                    )
+                  }
                 </div>
               );
             })
