@@ -1,10 +1,13 @@
 import Message from "./Message.jsx";
 import { Form } from "react-router-dom";
+import { useState } from "react";
+import ChatModal from "./ChatModal.jsx";
 
 function ContactChatBox() {
+  const [isChatActive, setIsChatActive] = useState(false);
 
   const activateChat = () => {
-    
+    setIsChatActive(true);
   }
 
   const dateFunc = () => {
@@ -41,7 +44,8 @@ function ContactChatBox() {
   ]
 
   return (
-    <div className="w-full h-full flex flex-col justify-end">
+    <>
+    <div className="w-full h-full flex flex-col justify-end z-50">
       <div className="w-full flex justify-center h-12 border-b pb-4">
         <h4 className="text-2xl font-semibold">Chat</h4>
       </div>
@@ -54,23 +58,27 @@ function ContactChatBox() {
       </div>
 
       <div className="h-16 mt-4 ">
-        <Form 
+        <div 
           className="relative"
           onSubmit={console.log('test')}
         >
           <input
             className="p-2 pl-4 rounded-full border-2 border-black w-full"
             onClick={activateChat}
+            placeholder="Add to the chat..."
           />
-          <button
+          {/* <button
             type="submit"
             className="bg-cyan-300 hover:bg-cyan-400 active:bg-cyan-500 absolute py-1.5 px-3 right-2 top-1 rounded-xl"
           >
             Chat
-          </button>
-        </Form>
+          </button> */}
+        </div>
       </div>
+      
     </div>
+    {<ChatModal isActive={isChatActive} />}
+    </>
   );
 }
 

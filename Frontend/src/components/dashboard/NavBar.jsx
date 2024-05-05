@@ -34,7 +34,7 @@ function NavBar() {
       >
         <nav>
 
-          <div className="flex my-4 mx-2 items-center w-fit">
+          <div className="flex mt-3 mb-5 mx-2 items-center w-fit">
             <img 
               src="../NetWrk logo.png" 
               alt="NetWrk's logo" 

@@ -75,8 +75,8 @@ function ContactsPage() {
           (
             contactid
           ) ? (
-            <Contact id={contactid} name={data[0].name} role={data[1].role}
-            company={data[2].company} goal={data[3].goal}/>
+            <Contact id={contactid} name={data[0].name} role={data[0].role}
+            company={data[0].company} goal={data[0].goal}/>
           ) : (
             <div className="w-full h-full flex items-center justify-center">
               <p className="w-fit font-semibold text-2xl">Select a Contact</p>
