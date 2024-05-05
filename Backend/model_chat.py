@@ -78,7 +78,8 @@ def decode_history(chat_history):
 def contact_history_compression(conversation_history):
     contact_history_compression_prompt = ChatPromptTemplate.from_template(CONTACT_CHAT_COMPRESSION_TEMPLATE)
     conversation_history = " ".join([str(item) for item in conversation_history])
-    contact_history_compression_prompt.format(chat_history=conversation_history)
+
+    return conversation_history
 
 
 def summarize_resume(resume: str):
@@ -116,7 +117,7 @@ def generate_send_message(contact: dict, chat_history, query=None):
         send_message_prompt.format(query=query)
 
     chat = model.start_chat(history=chat_history)
-
+    print(send_message_prompt)
     response = chat.send_message(send_message_prompt)
 
     return {

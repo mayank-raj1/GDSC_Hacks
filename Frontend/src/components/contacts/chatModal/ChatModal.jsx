@@ -1,8 +1,11 @@
 import ChatModalMessages from "./ChatModalMessages";
 import ChatModalText from "./ChatModalText";
 import ChatModalSidebar from "./ChatModalSidebar";
+import {useEffect, useState} from "react";
 
-function ChatModal({ isActive, closeModal }) {
+function ChatModal({ isActive, closeModal, conection_id }) {
+  const [chat_history, setchat_history] = useState([])
+  const [model_history, setmodel_history] = useState([])
 
   const data = [
     {
@@ -14,16 +17,42 @@ function ChatModal({ isActive, closeModal }) {
       text: "Sidebar 2 has information on ABC"
     },
   ]
-    const chat_history = [
-      {
-      "text": "In one sentence, explain how a computer works to a young child.",
-      "role": "user"
-    },
-    {
-      "text": "A computer is like a very smart machine that can understand and follow our instructions, help us with our work, and even play games with us!",
-      "role": "model"
+
+  useEffect(()=>{
+  }, [chat_history])
+  const handleSendMessage = async (text) => {
+  try {
+    const response = await fetch('http://127.0.0.1:3000/sendMessage', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        contact_id: conection_id,
+        chat_history: chat_history,
+        model_history:model_history
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`API call failed with status: ${response.status}`);
     }
-  ]
+
+    const data = await response.json();
+    setmodel_history(data.model_history)
+    setchat_history(data.chat_history)
+
+    // Handle the API response data here (optional)
+    // For example, update component state or display a success message
+    // setInputText(data.message); // Example: Update state with response message
+
+  } catch (error) {
+    console.error('Error sending message:', error); // Log the error for debugging
+    // Handle errors appropriately (optional)
+    // For example, display an error message to the user
+  }
+};
+  const [inputText, setInputText] = useState('')
 
   return (
     <div
@@ -44,8 +73,8 @@ function ChatModal({ isActive, closeModal }) {
         </div>
       </div>
 
-      
-      {isActive[1] && <ChatModalText isActive={isActive[3]} />}
+
+      {isActive[1] && <ChatModalText isActive={isActive[3]} onSendMessage={handleSendMessage} />}
     </div>
   );
 }

@@ -81,19 +81,19 @@ def sendMessage():
     model_history = data['model_history']
     contact = database_access.get_contact(contact_id)
     if "query" in data:
-        chat_history.append(data['query'])
+        chat_history.append({'text': data['query'], 'role': 'user'})
         answer = model_chat.generate_cold_message(contact=contact, chat_history=model_history)
         model_history = answer["chat_history"]
-        chat_history.append(answer["response"])
+        chat_history.append({'text':answer["response"], 'role': 'model'})
     else:
         if len(contact["conversation_history"]) == 0:
             answer = model_chat.generate_cold_message(contact=contact, chat_history=model_history)
             model_history = answer["chat_history"]
-            chat_history.append(answer["response"])
+            chat_history.append({'text':answer["response"], 'role': 'model'})
         else:
             answer = model_chat.generate_send_message(contact=contact, chat_history=model_history)
             model_history = answer["chat_history"]
-            chat_history.append(answer["response"])
+            chat_history.append({'text':answer["response"], 'role': 'model'})
 
     return jsonify({
         'chat_history': chat_history,

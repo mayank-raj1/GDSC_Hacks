@@ -97,7 +97,7 @@ function ContactChatBox({conversation_model, contact_id, extra}) {
 
     </div>
       {<AddReply modalVisible={modalVisible} setModalVisible={setModalVisible} onSubmit={handleSubmitFunction} />}
-      {<ChatModal isActive={[isChatActive, isChatActive2, isChatActive3, isChatActive4]} closeModal={closeModal} />}
+      {<ChatModal isActive={[isChatActive, isChatActive2, isChatActive3, isChatActive4]} closeModal={closeModal} conection_id={contact_id} />}
     </>
   );
 }
