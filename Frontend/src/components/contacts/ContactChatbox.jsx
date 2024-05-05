@@ -1,13 +1,30 @@
 import Message from "./Message.jsx";
 import { Form } from "react-router-dom";
 import { useState } from "react";
-import ChatModal from "./ChatModal.jsx";
+import ChatModal from "./chatModal/ChatModal.jsx";
 
 function ContactChatBox() {
   const [isChatActive, setIsChatActive] = useState(false);
+  const [isChatActive2, setIsChatActive2] = useState(false);
+  const [isChatActive3, setIsChatActive3] = useState(false);
+  const [isChatActive4, setIsChatActive4] = useState(false);
 
-  const activateChat = () => {
+
+  const activateChat = async () => {
     setIsChatActive(true);
+    await new Promise(r => setTimeout(r, 800))
+    setIsChatActive2(true);
+    await new Promise(r => setTimeout(r, 500))
+    setIsChatActive3(true);
+    await new Promise(r => setTimeout(r, 500))
+    setIsChatActive4(true);
+  }
+
+  const closeModal = () => {
+    setIsChatActive(false);
+    setIsChatActive2(false);
+    setIsChatActive3(false);
+    setIsChatActive4(false);
   }
 
   const dateFunc = () => {
@@ -45,7 +62,7 @@ function ContactChatBox() {
 
   return (
     <>
-    <div className="w-full h-full flex flex-col justify-end z-50">
+    <div className="w-full h-full flex flex-col justify-end">
       <div className="w-full flex justify-center h-12 border-b pb-4">
         <h4 className="text-2xl font-semibold">Chat</h4>
       </div>
@@ -77,7 +94,7 @@ function ContactChatBox() {
       </div>
       
     </div>
-    {<ChatModal isActive={isChatActive} />}
+    {<ChatModal isActive={[isChatActive, isChatActive2, isChatActive3, isChatActive4]} closeModal={closeModal} />}
     </>
   );
 }
