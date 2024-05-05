@@ -14,6 +14,16 @@ function ChatModal({ isActive, closeModal }) {
       text: "Sidebar 2 has information on ABC"
     },
   ]
+    const chat_history = [
+      {
+      "text": "In one sentence, explain how a computer works to a young child.",
+      "role": "user"
+    },
+    {
+      "text": "A computer is like a very smart machine that can understand and follow our instructions, help us with our work, and even play games with us!",
+      "role": "model"
+    }
+  ]
 
   return (
     <div
@@ -26,7 +36,7 @@ function ChatModal({ isActive, closeModal }) {
       }
 
       <div className=" w-full h-full flex items-center justify-center">
-        {isActive[0] && <ChatModalMessages isActive={isActive[1]} />}
+        {isActive[0] && <ChatModalMessages isActive={isActive[1]} chat_history={chat_history}/>}
         <div className="m-8 h-full w-1/3 flex flex-col items-start justify-center">
           {isActive[0] && <ChatModalSidebar isActive={isActive[2]} data={data[0]} />}
           {isActive[0] && <ChatModalSidebar isActive={isActive[2]} data={data[1]} />}

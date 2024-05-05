@@ -1,14 +1,43 @@
 import Message from "./Message.jsx";
-import { Form } from "react-router-dom";
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import ChatModal from "./chatModal/ChatModal.jsx";
+import AddReply from "./AddReply.jsx";
 
-function ContactChatBox() {
+function ContactChatBox({conversation_model, contact_id, extra}) {
   const [isChatActive, setIsChatActive] = useState(false);
   const [isChatActive2, setIsChatActive2] = useState(false);
   const [isChatActive3, setIsChatActive3] = useState(false);
   const [isChatActive4, setIsChatActive4] = useState(false);
 
+  const [modalVisible, setModalVisible] = useState(false); // Modal visibility state
+  const handleOpenModal = () => {
+    setModalVisible(true);
+  };
+
+  useEffect(() => {}, [conversation_model])
+
+  const handleSubmitFunction = async (message) => {
+  try {
+    console.log(contact_id)
+    console.log(extra)
+    const response = await fetch('http://127.0.0.1:3000/update_conversation_sender', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        contact_id: contact_id,
+        message: message
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const data = await response.json();
+    conversation_model = data.conversation_history
+  } catch (error) {
+    console.error('Error updating conversation:', error);
+  }
+};
 
   const activateChat = async () => {
     setIsChatActive(true);
@@ -27,39 +56,6 @@ function ContactChatBox() {
     setIsChatActive4(false);
   }
 
-  const dateFunc = () => {
-    let date = new Date()
-    date = date.toLocaleDateString('en-GB', {
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit'
-    })
-    return date;
-  }
-  
-  const sampleMessages = [
-    {
-      sender: "Jane Doe",
-      text: "Hello! How are you?",
-      timestamp: Date.now(),
-    },
-    {
-      sender: "You",
-      text: "Hello! How are you?",
-      timestamp: Date.now(),
-    },
-    {
-      sender: "Jane Doe",
-      text: "Hello! How are you?",
-      timestamp: Date.now(),
-    },
-    {
-      sender: "You",
-      text: "Hello! How are you? Hello! How are you? Hello! How are you? Hello! How are you? Hello! How are you?",
-      timestamp: dateFunc(),
-    },
-  ]
-
   return (
     <>
     <div className="w-full h-full flex flex-col justify-end">
@@ -67,34 +63,41 @@ function ContactChatBox() {
         <h4 className="text-2xl font-semibold">Chat</h4>
       </div>
       <div className="w-full h-full flex flex-col-reverse items-center">
-        {
-          sampleMessages.map((message, i) => {
-            return <Message key={i} message={message} />
-          })
+        {conversation_model ? (
+            conversation_model.map((message, i) => {
+              return <Message key={i} message={message}/>
+            })) : (
+          <h2 className="text-xl font-semibold text-gray-800 items-center justify-center">
+          Add an initial message
+          </h2>
+          )
         }
+
       </div>
 
       <div className="h-16 mt-4 ">
         <div 
           className="relative"
-          onSubmit={console.log('test')}
         >
-          <input
-            className="p-2 pl-4 rounded-full border-2 border-black w-full"
-            onClick={activateChat}
-            placeholder="Add to the chat..."
-          />
-          {/* <button
-            type="submit"
-            className="bg-cyan-300 hover:bg-cyan-400 active:bg-cyan-500 absolute py-1.5 px-3 right-2 top-1 rounded-xl"
-          >
-            Chat
-          </button> */}
+          <div className="flex space-x-2">
+            <button
+                className="bg-indigo-300 p-2 pl-4 rounded-full border-2 border-black w-full"
+                onClick={handleOpenModal}
+            >
+              Add Response!
+            </button>
+            <input
+                className="p-2 pl-4 rounded-full border-2 border-black w-full"
+                onClick={activateChat}
+                placeholder="Add to the chat..."
+            />
+          </div>
         </div>
       </div>
-      
+
     </div>
-    {<ChatModal isActive={[isChatActive, isChatActive2, isChatActive3, isChatActive4]} closeModal={closeModal} />}
+      {<AddReply modalVisible={modalVisible} setModalVisible={setModalVisible} onSubmit={handleSubmitFunction} />}
+      {<ChatModal isActive={[isChatActive, isChatActive2, isChatActive3, isChatActive4]} closeModal={closeModal} />}
     </>
   );
 }

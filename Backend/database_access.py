@@ -15,7 +15,11 @@ collection = db["contacts"]
 
 def save_new_contact(username, contact):
     try:
-        contact["_id"] = username+ str(uuid.uuid4())
+        uuid_str = str(uuid.uuid4())
+        contact["_id"] = username+ uuid_str
+        contact["id"] = uuid_str
+        contact["conversation_history"] = []
+        print(contact)
         collection.insert_one(contact)
         return True
     except Exception as e:
@@ -37,7 +41,7 @@ def get_all_contacts(username):
 
 def get_contact(contact_id):
     try:
-        contact = collection.find_one({ "_id": contact_id })
+        contact = collection.find_one({"id": contact_id })
         return contact
     except Exception as e:
         print(e)
@@ -53,7 +57,7 @@ def delete_contact(contact_id):
 
 def update_conversation(contact_id, conversation):
     try:
-        collection.update_one({ "_id": contact_id}, {"$set": { "conversation": conversation}})
+        collection.update_one({ "id": contact_id}, {"$set": { "conversation_history": conversation}})
         return get_contact(contact_id)
     except Exception as e:
         print(e)

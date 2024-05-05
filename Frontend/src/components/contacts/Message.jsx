@@ -1,6 +1,6 @@
 
 function Message({ message }) {
-  const { sender, text, timestamp } = message;
+  const { sender, text } = message;
   console.log(sender === "You")
   return (
     <div className={ 
@@ -22,7 +22,6 @@ function Message({ message }) {
       }>
         <p className="font-semibold mb-1">{sender}</p>
         <p className="text-sm">{text}</p>
-        <time>{timestamp}</time>
       </div>
     </div>
   );

@@ -30,6 +30,22 @@ here is some context about the person:
 {profile}
 """
 
+SEND_MESSAGE_REFINE_SYSTEM_TEMPLATE = """You are an experienced career coach with over 20 years of experience. 
+Help me make improvements to the respond to continue to this chat, I am providing the chat summary of the conversation till now, 
+my goals from the this person connection, some context about this person, and my draft message, keep the responses short and only output the improved the messages.
+here is the summary of the conversation:
+{summary}
+
+here are my goals for the conversation:
+{goals}
+
+here is some context about the person:
+{profile}
+
+here is my draft response:
+{draft_responses}
+"""
+
 
 CONTACT_CHAT_COMPRESSION_TEMPLATE = "Can you please generate a summary of this conversation, keep as much of the details as possible"
 
@@ -68,7 +84,7 @@ def contact_history_compression(conversation_history):
 def summarize_resume(resume: str):
     resume_summarization_prompt = ChatPromptTemplate.from_template(RESUME_SUMMARIZATION_TEMPLATE)
     summarize_chain = resume_summarization_prompt | llm
-    return summarize_chain.invoke({"profile": resume})
+    return summarize_chain.invoke({"profile": resume}).content
 
 
 def generate_cold_message(contact: dict, chat_history, query=None):
