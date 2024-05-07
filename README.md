@@ -1,30 +1,31 @@
-# NetWrk: Your AI-powered Networking Assistant
+# NetWrk: Your AI-powered Networking Assistant 🌐💼
 
-## About project
-**Introduction**
+## About Project ℹ️
+
+### Introduction 🚀
 
 Feeling intimidated reaching out to professionals? Don't sweat the small talk! NetWrk is your AI-powered assistant, helping you build meaningful connections and unlock the knowledge and experience of industry experts.
 
-**What does NetWrk Do?**
+### What does NetWrk Do? 🤖
 
 They say "Your network is your net worth." But many people are uncomfortable with networking, for myriad reasons. NetWrk is a website designed to help professionals and students strengthen their network and have meaningful conversations. Our built-in AI assistant analyzes public information, like LinkedIn profiles, to suggest relevant questions and break the ice.
 
-**Tech Stack**
+### Tech Stack ⚙️
 
 * **Front-end:** React.js, Tailwind CSS
 * **Back-end:** Python, Flask, LangChain, GeminiAI, MongoDB
 * **Additional Technologies:** GitHub, GenerativeAI, Google Cloud
 
-**What's Next for NetWrk**
+### What's Next for NetWrk 🔮
 
 NetWrk has the potential to become a powerful application for young or inexperienced, neurodiverse, and international students and professionals to connect with mentors. Here are our next steps:
 
 * Integrate received messages from professionals to help the AI curate more meaningful questions.
 * Develop a Chrome extension for seamless networking within LinkedIn.
 
-We welcome your feedback and contributions!
+We welcome your feedback and contributions! 🙌
 
-# Contributors
+# Contributors 👥
 
 We'd like to thank the following people for their contributions to NetWrk:
 
@@ -35,16 +36,15 @@ We'd like to thank the following people for their contributions to NetWrk:
 
 **This project was created for the GDSC Hackathon 2024.**  We are grateful for the opportunity to have participated in this event and for the support provided by Google Developer Student Clubs.
 
-
-## Running NetWrk
+## Running NetWrk ▶️
 
 NetWrk consists of a back-end server and a front-end React application. 
 
-**Prerequisites**
+### Prerequisites 🛠️
 
 * Ensure you have Node.js and npm (or yarn) installed on your machine. You can download them from the official Node.js website ([https://nodejs.org/en](https://nodejs.org/en)).
 
-**Running the Back-end**
+### Running the Back-end ⚙️
 
 1.  Clone this repository to your local machine.
 2.  Navigate to the project directory using your terminal.
@@ -68,7 +68,7 @@ NetWrk consists of a back-end server and a front-end React application.
     python app.py
     ```
 
-**Running the Front-end**
+### Running the Front-end ▶️
 
 1.  Navigate to the front-end directory within the project:
     ```bash
@@ -84,6 +84,6 @@ NetWrk consists of a back-end server and a front-end React application.
     ```
     This will start the front-end application on `http://localhost:3000` by default.
 
-**Contributing**
+### Contributing 🤝
 
-We welcome contributions to this project! Simply make your own fork, work on it, and make an pull reqest with your pitch for us to review.
+We welcome contributions to this project! Simply make your own fork, work on it, and make an pull request with your pitch for us to review.
