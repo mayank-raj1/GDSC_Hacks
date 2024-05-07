@@ -25,6 +25,18 @@ NetWrk has the potential to become a powerful application for young or inexperie
 
 We welcome your feedback and contributions! 🙌
 
+## Screenshots 📸
+
+Here are some screenshots showcasing NetWrk in action:
+**Create New Contact**
+[![2.png](https://i.postimg.cc/FFbx9hkr/2.png)](https://postimg.cc/RqFtd5Ty)
+
+**System Overview**
+[![Screenshot-2024-05-07-at-11-40-25-AM.png](https://i.postimg.cc/qvFsmRSL/Screenshot-2024-05-07-at-11-40-25-AM.png)](https://postimg.cc/mPQ1kbbz)
+
+
+**This project was created for the GDSC Hackathon 2024.** We are grateful for the opportunity to have participated in this event and for the support provided by Google Developer Student Clubs.
+
 # Contributors 👥
 
 We'd like to thank the following people for their contributions to NetWrk:
@@ -33,8 +45,6 @@ We'd like to thank the following people for their contributions to NetWrk:
 * [Ashton](https://github.com/ashsic)
 * [Brian](https://github.com/Khepriest)
 * [Silas](https://github.com/verimascent)
-
-**This project was created for the GDSC Hackathon 2024.**  We are grateful for the opportunity to have participated in this event and for the support provided by Google Developer Student Clubs.
 
 ## Running NetWrk ▶️
 
